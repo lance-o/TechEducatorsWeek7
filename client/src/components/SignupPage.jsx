@@ -12,7 +12,7 @@ export default function SignupPage() {
 
   async function attemptSubmitForm(event, username){
     // call the api
-    const response = await fetch("http://localhost:8080/user",
+    const response = await fetch("https://techeducatorsweek7server.onrender.com/user",
         {
             method:"POST",
             headers:{
@@ -26,7 +26,7 @@ export default function SignupPage() {
     if(data.length)
         setFormError(`User "${username}" already exists.\n`);
     else{
-      await fetch("http://localhost:8080/signup", {
+      await fetch("https://techeducatorsweek7server.onrender.com/signup", {
         method:"POST",
         headers:{
             "Content-Type": "application/json",

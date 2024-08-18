@@ -23,7 +23,7 @@ export default function Form(props) {
       let user_id = user.id;
       let content = formValues.content;
       let image_url = formValues.image_url;
-      await fetch("http://localhost:8080/newpost", {
+      await fetch("https://techeducatorsweek7server.onrender.com/newpost", {
         method:"POST",
         headers:{
             "Content-Type": "application/json",

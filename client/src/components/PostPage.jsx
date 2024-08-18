@@ -41,6 +41,7 @@ export default function PostPage(props) {
         content={thisPost.content}
         img_url={thisPost.img_url}
         didUserLikePost={props.didUserLikePost}
+        likePost={props.likePost}
         />
         )
         })}

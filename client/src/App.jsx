@@ -41,25 +41,44 @@ export default function App() {
   //   setUserLikes(data);
   // }
 
-  async function didUserLikePost(post_id) {
-    // call the api
+  async function likePost(post_id, type) {
     let user_id = currUser.id;
-    if(user_id == null){
-      user_id = 0;
+    if (user_id == null) {
+      return;
     }
-    console.log("HIII");
-    const response = await fetch("http://localhost:8080/userlikedthis", {
+    await fetch(`https://techeducatorsweek7server.onrender.com/${type}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify({user_id, post_id}),
+      body: JSON.stringify({ user_id, post_id }),
     });
+  }
+
+  async function didUserLikePost(post_id) {
+    // call the api
+    let user_id = currUser.id;
+    if (user_id == null) {
+      user_id = 0;
+    }
+    console.log("HIII");
+    const response = await fetch(
+      "https://techeducatorsweek7server.onrender.com/userlikedthis",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({ user_id, post_id }),
+      }
+    );
     // get the data from the response
     const data = await response.json();
-    if(data[0]!= null){
-      console.log(data[0]);
+    console.log("HUH???", data[0]);
+    if (data[0] != null) {
+      console.log("wtf", data[0]);
       return true;
     }
     // update our state with that new data
@@ -99,11 +118,22 @@ export default function App() {
           Twitter 2
         </Link>
         <Routes>
-          <Route path="/" element={<HomePage currUser={currUser} didUserLikePost={didUserLikePost}/>} />
+          <Route
+            path="/"
+            element={
+              <HomePage currUser={currUser} didUserLikePost={didUserLikePost} likePost={likePost}/>
+            }
+          />
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/posts/:postId" element={<PostPage didUserLikePost={didUserLikePost}/>} />
-          <Route path="/users/:username" element={<UserPage didUserLikePost={didUserLikePost}/>}>
+          <Route
+            path="/posts/:postId"
+            element={<PostPage didUserLikePost={didUserLikePost} likePost={likePost}/>}
+          />
+          <Route
+            path="/users/:username"
+            element={<UserPage didUserLikePost={didUserLikePost} likePost={likePost}/>}
+          >
             <Route path="posts" element={<PageNotFound />} />
             <Route path="likes" element={<PageNotFound />} />
           </Route>

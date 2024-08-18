@@ -146,6 +146,14 @@ app.post("/likepost", function (request, response) {
   response.json({ status: "Message Recieved" });
 });
 
+// Delete a like from requested database
+app.post("/unlikepost", function (request, response) {
+  console.log("DELETE THSI PLS", request.body);
+  db.query(`DELETE FROM user_like_junction WHERE 
+user_id=${request.body.user_id} AND post_id=${request.body.post_id};`);
+  response.json({ status: "Message Recieved" });
+});
+
 app.listen(port, function () {
   console.log(`Server running on port ${port}`);
 });

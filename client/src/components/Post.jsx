@@ -5,7 +5,15 @@ export default function Post(props) {
   const [liked, setLiked] = useState(false);
   const navigate = useNavigate();
 
-  async function likePost() {}
+  async function likePost(post_id) {
+    if (liked == true) {
+      props.likePost(post_id, "unlikepost");
+    } else {
+      props.likePost(post_id, "likepost");
+    }
+    getCurrUserLikedThis(props.id);
+    getNumLikes(props.id);
+  }
 
   useEffect(() => {
     getCurrUserLikedThis(props.id);
@@ -13,23 +21,25 @@ export default function Post(props) {
   }, []);
 
   async function getCurrUserLikedThis(post_id) {
-    console.log("plz werk");
     setLiked(await props.didUserLikePost(post_id));
   }
 
   async function getNumLikes(post_id) {
-    const response = await fetch("http://localhost:8080/postlikes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await fetch(
+      "https://techeducatorsweek7server.onrender.com/postlikes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      body: JSON.stringify({post_id}),
-    });
+        body: JSON.stringify({ post_id }),
+      }
+    );
 
     // get the data from the response
     const data = await response.json();
-    if(data[0].liked_by[0]!= null){
+    if (data[0].liked_by[0] != null) {
       console.log(data[0].liked_by);
       setLikes(data[0].liked_by.length);
     }
@@ -68,13 +78,17 @@ export default function Post(props) {
             )}
             <div className="LikesSection">
               <p>{likes}</p>
-              {liked == true
-              ? <p>liked</p>
-              : <p>NOT liked</p>}
+              {liked == true ? <p>liked</p> : <p>NOT liked</p>}
             </div>
-            <button onClick={likePost} /> 
           </span>
         </div>
+        <button
+          onClick={() => {
+            likePost(props.id);
+          }}
+        >
+          LIKE
+        </button>
       </div>
 
       <Outlet />

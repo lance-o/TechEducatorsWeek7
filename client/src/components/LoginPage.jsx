@@ -12,7 +12,7 @@ export default function LoginPage(props) {
 
   async function attemptSubmitForm(event, username){
     // call the api
-    const response = await fetch("http://localhost:8080/user",
+    const response = await fetch("https://techeducatorsweek7server.onrender.com/user",
         {
             method:"POST",
             headers:{

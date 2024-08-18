@@ -11,7 +11,7 @@ export default function UserPage(props) {
 
   async function getUser() {
     // call the api
-    const response = await fetch("http://localhost:8080/user",
+    const response = await fetch("https://techeducatorsweek7server.onrender.com/user",
     {
         method:"POST",
         headers:{
@@ -48,6 +48,7 @@ export default function UserPage(props) {
                         content={post.content}
                         img_url={post.img_url}
                         didUserLikePost={props.didUserLikePost}
+                        likePost={props.likePost}
                         />
                     )
                 })}</> 

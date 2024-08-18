@@ -11,7 +11,7 @@ export default function HomePage(props) {
 
   async function getPosts() {
     // call the api
-    const response = await fetch("http://localhost:8080/posts");
+    const response = await fetch("https://techeducatorsweek7server.onrender.com/posts");
     // get the data from the response
     const data = await response.json();
     // update our state with that new data
@@ -32,6 +32,7 @@ export default function HomePage(props) {
         img_url={post.img_url}
 
         didUserLikePost={props.didUserLikePost}
+        likePost={props.likePost}
         />
         );
     })}
