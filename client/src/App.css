@@ -1,0 +1,198 @@
+.Title{
+    position: absolute;
+    left:0px;
+    top:0px;
+    user-select: none;
+    -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+    text-decoration: none;
+    color:black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    color:rgb(0, 174, 255)
+}
+
+.App{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 4;
+}
+
+.TopButtons{
+    padding: 5px;
+    gap:30px;
+    display: flex;
+    position: absolute;
+    top:0px;
+    right:25px;
+}
+
+.Button{
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #dedede;
+    width:100px;
+    height:40px;
+}
+
+.Button:hover{
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dedede;
+    outline: 1px solid #dedede;
+    width:100px;
+    height:40px;
+}
+
+form{
+    margin:70px;
+}
+
+.FormArea{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33vw;
+    padding:2px;
+}
+
+.FormContent{
+    resize: none;
+    width:33vw;
+    height:300px;
+}
+
+.FormButton{
+    z-index: 1;
+    position: absolute;
+    bottom:4px;
+    right:-2px;
+    width:150px;
+    height:35px;
+}
+
+.FormURL{
+    width:27vw;
+    padding:2px;
+    margin:10px;
+}
+
+.post-body{
+    margin:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    text-decoration: none;
+    outline: 1px solid #dedede;
+    color: black;
+    cursor:default;
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width:33vw;
+    height:auto;
+    background-color: white;
+    z-index: 1;
+}
+
+.post-username{
+    text-decoration: none;
+    transform:translateX(-15vw);
+    align-items: center;
+    position: relative;
+    color: black;
+    cursor:default;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width:10px;
+}
+
+.PostContentContainer{
+    border-radius: 10px;
+    outline: 1px solid #dedede;
+    width:31vw;
+    margin:8px;
+    background-color: white;
+}
+
+.PostContent{
+    margin:7px;
+    height:auto;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.PostImgContainer{
+    margin: 8px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #dedede;
+    width:31vw;
+    height:21vw;
+    z-index: 1;
+    object-fit: cover;
+    overflow:hidden;
+}
+
+.PostImg{
+    object-fit:cover;
+    height:100%;
+    z-index: -7;
+}
+
+.LoginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #dedede;
+    padding:20px;
+    width:33vw;
+}
+
+.UsernameEntry{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+.UsernameEntry input{
+    width:22vw;
+}
+
+.LoginForm button{
+    margin:20px;
+    padding:10px;
+    width:22vw;
+    background-color:white;
+}
+
+.LoginForm button:hover{
+    margin:20px;
+    padding:10px;
+    width:22vw;
+    background-color:rgb(165, 165, 165);
+}
+
+.error {
+    background-color: rgb(255, 0, 0, 0.3);
+    border: 1px solid red;
+    border-radius: 3px;
+    color: red;
+    padding: 10px;
+    white-space: pre;
+  }
